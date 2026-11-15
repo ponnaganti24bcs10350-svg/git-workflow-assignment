@@ -1,0 +1,49 @@
+================================================================================
+GIT COMMANDS DOCUMENTATION - ASSIGNMENT 1
+Student Name: Srividya Ponnaganti
+Student ID  : 24bcs10350
+Course      : Software Engineering & DevOps
+================================================================================
+
+1. git init -b main
+   Initializes a new local Git repository in the current directory and sets the default initial branch name to 'main'.
+
+2. git status
+   Displays the current state of the working directory and staging area, indicating tracked, untracked, and modified files.
+
+3. git add index.html about.html
+   Stages specified files to the Git index, preparing them to be included in the upcoming commit snapshot.
+
+4. git commit -m "Initial commit: Add index.html and about.html"
+   Records staged changes to the repository history with an informative commit message describing the snapshot.
+
+5. git branch feature
+   Creates an isolated branch named 'feature' branching off from the current HEAD commit without switching to it.
+
+6. git checkout feature
+   Switches the active working branch from 'main' to 'feature' to develop changes independently.
+
+7. git merge --no-ff feature -m "Merge branch 'feature' into main"
+   Merges the 'feature' branch history into 'main', creating an explicit merge commit to clearly preserve branch history.
+
+8. git log --graph --oneline --decorate --all
+   Displays a visual ASCII graph of all branches and commit history in a concise single-line format.
+
+9. git status --ignored
+   Lists untracked files as well as files explicitly ignored by patterns defined in the .gitignore file.
+
+10. git reset --soft HEAD~1
+    Undoes the most recent commit, moving the HEAD pointer back by one commit while keeping modifications in the staging area.
+
+11. git remote add origin https://github.com/ponnaganti24bcs10350-svg/git-workflow-assignment.git
+    Links the local Git repository to a remote repository hosted on GitHub under the alias 'origin'.
+
+12. git remote -v
+    Verifies the URLs configured for fetching and pushing to the connected remote repositories.
+
+13. git push -u origin main
+    Uploads the local 'main' branch commits to the remote GitHub repository and establishes upstream tracking.
+
+14. git push origin feature
+    Pushes the 'feature' branch to the remote GitHub repository so all branching history is publicly verifiable.
+================================================================================
