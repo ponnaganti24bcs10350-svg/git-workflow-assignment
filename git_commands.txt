@@ -1,49 +1,69 @@
-================================================================================
-GIT COMMANDS DOCUMENTATION - ASSIGNMENT 1
-Student Name: Srividya Ponnaganti
-Student ID  : 24bcs10350
-Course      : Software Engineering & DevOps
-================================================================================
+Git Commands Reference - Personal Notes
+----------------------------------------
+
+Below are the commands I ran during this assignment, along with what each one actually does in my own words.
 
 1. git init -b main
-   Initializes a new local Git repository in the current directory and sets the default initial branch name to 'main'.
+   I used this at the very beginning to turn my project folder into a Git-tracked repository.
+   The -b main part told Git to name the starting branch "main" right away instead of the
+   old default name. Without this step, Git wouldn't know anything about my files at all.
 
 2. git status
-   Displays the current state of the working directory and staging area, indicating tracked, untracked, and modified files.
+   I ran this constantly just to see what was going on - which files Git was watching, which
+   ones had changes Git hadn't saved yet, and which were completely new and unknown to Git.
+   It's basically a quick sanity check before doing anything else.
 
 3. git add index.html about.html
-   Stages specified files to the Git index, preparing them to be included in the upcoming commit snapshot.
+   This picked up my two HTML files and moved them into a holding area (called the index or
+   staging area) so they'd be ready to include in my next commit. Only staged files get saved
+   when you commit, so this step is essential.
 
 4. git commit -m "Initial commit: Add index.html and about.html"
-   Records staged changes to the repository history with an informative commit message describing the snapshot.
+   This actually saved the staged snapshot permanently into the project history. The message
+   after -m is a short note so I (or anyone else) can tell at a glance what changed in this
+   particular save point.
 
 5. git branch feature
-   Creates an isolated branch named 'feature' branching off from the current HEAD commit without switching to it.
+   This made a new branch called "feature" that starts off at the exact same point as main.
+   I didn't jump into it yet - I just created it. Think of it like making a copy of the
+   project where I can experiment freely without touching main.
 
 6. git checkout feature
-   Switches the active working branch from 'main' to 'feature' to develop changes independently.
+   This switched me over to the feature branch. Any changes I make from this point forward
+   go onto feature, not main, so my working version stays safe.
 
 7. git merge --no-ff feature -m "Merge branch 'feature' into main"
-   Merges the 'feature' branch history into 'main', creating an explicit merge commit to clearly preserve branch history.
+   After finishing my changes on feature, I went back to main and ran this to bring those
+   changes in. The --no-ff flag forces Git to record a real merge commit rather than just
+   fast-forwarding, which keeps the branch history visible in the log.
 
 8. git log --graph --oneline --decorate --all
-   Displays a visual ASCII graph of all branches and commit history in a concise single-line format.
+   This prints out the whole commit history as a text diagram showing all branches. It's
+   really useful for confirming that my branch structure and merges look the way I expected.
 
 9. git status --ignored
-   Lists untracked files as well as files explicitly ignored by patterns defined in the .gitignore file.
+   Similar to plain git status but also reveals files that are being intentionally skipped
+   because of rules in the .gitignore file. I used this to confirm my .log files and temp/
+   folder were actually being filtered out.
 
 10. git reset --soft HEAD~1
-    Undoes the most recent commit, moving the HEAD pointer back by one commit while keeping modifications in the staging area.
+    This undid my last commit but kept all the file changes staged - nothing was deleted.
+    It's like telling Git "pretend that last commit didn't happen, but keep the work".
+    Useful when I realised I'd committed something too early or by mistake.
 
 11. git remote add origin https://github.com/ponnaganti24bcs10350-svg/git-workflow-assignment.git
-    Links the local Git repository to a remote repository hosted on GitHub under the alias 'origin'.
+    This told my local Git where the GitHub repository lives by giving it a nickname "origin".
+    Without this, there's no connection between my local project and GitHub at all.
 
 12. git remote -v
-    Verifies the URLs configured for fetching and pushing to the connected remote repositories.
+    A quick check to confirm the remote URL got saved correctly - prints both the fetch and
+    push addresses so I can see at a glance that origin is pointing to the right place.
 
 13. git push -u origin main
-    Uploads the local 'main' branch commits to the remote GitHub repository and establishes upstream tracking.
+    This sent all my local main branch commits up to GitHub for the first time. The -u flag
+    links my local main to the remote one, so future push/pull commands know where to go
+    without me specifying every time.
 
 14. git push origin feature
-    Pushes the 'feature' branch to the remote GitHub repository so all branching history is publicly verifiable.
-================================================================================
+    Same idea but for the feature branch - this made sure the full branch history including
+    my feature commits was visible on GitHub too, not just the merged result on main.
